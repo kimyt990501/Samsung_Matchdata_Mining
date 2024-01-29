@@ -10,8 +10,8 @@
 
 #### 파일 명
 - samsung_matchdata_crawling.py (크롤링을 위해 작성한 파일)
-- samsung_winning_rate.py (승률 계산 후 파일 저장)
-- samsung_matchdata_mine.py (데이터 불러와 시각화)
+- summersung_winningrate.py (승률 계산 후 파일 저장)
+- summersung_mine.py (데이터 불러와 시각화)
 
 #### 개발환경
 - IDE: Visual Studio Code
