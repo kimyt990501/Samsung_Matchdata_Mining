@@ -13,7 +13,7 @@ from IPython.display import set_matplotlib_formats
 set_matplotlib_formats('retina')
 
 # 2001년부터 2023년까지의 승률 데이터 합친 csv 파일 불러오기
-wr_01_23 = pd.read_csv('C:\\Users\\user\\Desktop\\python_database_practice\\python_database_practice\\samsung_matchdata_mine\\data\samsung_winning_rate\\wr_01_23.csv', encoding='euc-kr').astype({'월':'int'})
+wr_01_23 = pd.read_csv('C:\\Users\\user\\Desktop\\samsung_matchdata_mining\\Samsung_Matchdata_Mining\\data\\samsung_winning_rate\\wr_01_23.csv', encoding='euc-kr').astype({'월':'int'})
 
 wr_month = []
 
