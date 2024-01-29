@@ -17,9 +17,9 @@ driver.find_element(By.XPATH, "//*[@id='ddlSeries']/option[text()='KBO 정규시
 driver.find_element(By.XPATH, "//*[@id='boxList']/ul/li[@attr-value = 'SS']").click()
 
 # 년도 선택
-driver.find_element(By.XPATH, "//*[@id='ddlYear']/option[text()='2001']").click()
+driver.find_element(By.XPATH, "//*[@id='ddlYear']/option[text()='2009']").click()
 
-for month in range(4, 11):
+for month in range(4, 10):
     # 월 선택
     driver.find_element(By.XPATH, "//*[@id='ddlMonth']/option[" + str(month) + "]").click()
     
@@ -43,6 +43,8 @@ for month in range(4, 11):
                     temp = [td_list[0].text.strip(), span_list[0].text.strip(), '-']
                 elif td_list[7].text == '포항':
                     temp = [td_list[0].text.strip(), span_list[0].text.strip(), '-']
+                elif td_list[7].text == '시민':
+                    temp = [td_list[0].text.strip(), span_list[0].text.strip(), '-']
                 else:
                     temp = [td_list[0].text.strip(), span_list[2].text.strip(), '-']
                 list.append(temp)
@@ -51,6 +53,8 @@ for month in range(4, 11):
                 if td_list[7].text == '대구':
                     temp = [td_list[0].text.strip(), span_list[0].text.strip(), '-']
                 elif td_list[7].text == '포항':
+                    temp = [td_list[0].text.strip(), span_list[0].text.strip(), '-']
+                elif td_list[7].text == '시민':
                     temp = [td_list[0].text.strip(), span_list[0].text.strip(), '-']
                 else:
                     temp = [td_list[0].text.strip(), span_list[2].text.strip(), '-']
@@ -73,6 +77,13 @@ for month in range(4, 11):
                         temp = [td_list[0].text.strip(), span_list[0].text.strip(), 'draw']
                     else:
                         temp = [td_list[0].text.strip(), span_list[0].text.strip(), 'lose']
+                elif td_list[7].text == '시민':
+                    if int(span_list[3].text) > int(span_list[1].text):
+                        temp = [td_list[0].text.strip(), span_list[0].text.strip(), 'win']
+                    elif int(span_list[3].text) == int(span_list[1].text):
+                        temp = [td_list[0].text.strip(), span_list[0].text.strip(), 'draw']
+                    else:
+                        temp = [td_list[0].text.strip(), span_list[0].text.strip(), 'lose']
                 else:
                     if int(span_list[3].text) < int(span_list[1].text):
                         temp = [td_list[0].text.strip(), span_list[4].text.strip(), 'win']
@@ -86,6 +97,8 @@ for month in range(4, 11):
                 if td_list[6].text == '대구':
                     temp = ['-', span_list[0].text.strip(), '-']
                 elif td_list[6].text == '포항':
+                    temp = ['-', span_list[0].text.strip(), '-']
+                elif td_list[6].text == '시민':
                     temp = ['-', span_list[0].text.strip(), '-']
                 else:
                     temp = ['-', span_list[2].text.strip(), '-']
@@ -107,6 +120,13 @@ for month in range(4, 11):
                         temp = ['-', span_list[0].text.strip(), 'draw']
                     else:
                         temp = ['-', span_list[0].text.strip(), 'lose']
+                elif td_list[6].text == '시민':
+                    if int(span_list[3].text) > int(span_list[1].text):
+                        temp = ['-', span_list[0].text.strip(), 'win']
+                    elif int(span_list[3].text) == int(span_list[1].text):
+                        temp = ['-', span_list[0].text.strip(), 'draw']
+                    else:
+                        temp = ['-', span_list[0].text.strip(), 'lose']
                 else:
                     if int(span_list[3].text) < int(span_list[1].text):
                         temp = ['-', span_list[4].text.strip(), 'win']
@@ -118,4 +138,4 @@ for month in range(4, 11):
     # 빈 데이터프레임 만들기
     df = pd.DataFrame(list)
     df.columns = ['날짜', '상대팀', '결과']
-    df.to_csv('samsung_2001_' + str(month) + '_match_result.csv', index=None, encoding='euc-kr')
+    df.to_csv('C:\\Users\\user\\Desktop\\samsung_matchdata_mining\\Samsung_Matchdata_Mining\\data\\samsung_match_data\\2009\\samsung_2009_' + str(month) + '_match_result.csv', index=None, encoding='euc-kr')
