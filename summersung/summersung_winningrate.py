@@ -11,7 +11,7 @@ from IPython.display import set_matplotlib_formats
 set_matplotlib_formats('retina')
 
 # 각 연도별 경기가 있었던 기간 (월별)
-# 01, 02, 03, 04, 06, 07, 11, 12, 16, 21, 22, 23
+# 01, 02, 03, 04, 06, 07, 11, 12, 16, 21, 22, 23 
 m_4_10 = range(4, 11)
 
 # 05, 09
